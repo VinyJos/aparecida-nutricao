@@ -3,6 +3,7 @@
     titulo.textContent = 'Aparecida Nutricionista';
 
     var pacientes = document.querySelectorAll('.paciente');
+    defineAcoesDaPagina();
 
     for(var i = 0; i < pacientes.length; i++) {
         var paciente = pacientes[i];
@@ -57,6 +58,37 @@
 
     function destacaErro(item) {
         item.classList.add('paciente-invalido')
+    }
+
+    function defineAcoesDaPagina() {
+        var botaoAdicionar = document.querySelector('#adicionar-paciente');
+
+        botaoAdicionar.addEventListener('click', function(event) {
+            event.preventDefault();
+            var form = document.querySelector('#form-adiciona');
+
+            var tdNome = document.createElement('td');
+            var tdPeso = document.createElement('td');
+            var tdAltura = document.createElement('td');
+            var tdGordura = document.createElement('td');
+            var tdImc = document.createElement('td');
+
+            tdNome.textContent = form.nome.value;
+            tdPeso.textContent = form.peso.value;
+            tdAltura.textContent = form.altura.value;
+            tdGordura.textContent = form.gordura.value;
+            tdImc.textContent = calculaImc(form.peso.value, form.altura.value).toFixed(2);
+
+            var tr = document.createElement('tr');
+            tr.appendChild(tdNome);
+            tr.appendChild(tdPeso);
+            tr.appendChild(tdAltura);
+            tr.appendChild(tdGordura);
+            tr.appendChild(tdImc);
+
+            document.querySelector('#tabela-pacientes').appendChild(tr);
+
+        });
     }
 
 })();
