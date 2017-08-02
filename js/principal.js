@@ -2,25 +2,37 @@
     var titulo = document.querySelector('.titulo');
     titulo.textContent = 'Aparecida Nutricionista';
 
-    var paciente = document.querySelector('#primeiro-paciente');
-    var dadosPaciente = obtemDadosDoPaciente(paciente);
-    var infoImc = paciente.querySelector('.info-imc');
+    var pacientes = document.querySelectorAll('.paciente');
 
-    if (!validaPeso(dadosPaciente.peso)) {
-        var mensagem = "Peso inválido";
-        console.log(mensagem);
-        infoImc.textContent = mensagem;
-        return;
-    }
-    if(!validaAltura(dadosPaciente.altura)) {
-        var mensagem = "Altura inválida";
-        console.log(mensagem);
-        infoImc.textContent = mensagem;
-        return;
-    }
+    for(var i = 0; i < pacientes.length; i++) {
+        var paciente = pacientes[i];
+        var pesoEhInvalido = false;
+        var alturaEhInvalida = false;
 
-    dadosPaciente.imc = calculaImc(dadosPaciente.peso, dadosPaciente.altura);
-    paciente.querySelector('.info-imc').textContent = dadosPaciente.imc;
+        var dadosPaciente = obtemDadosDoPaciente(paciente);
+        var infoImc = paciente.querySelector('.info-imc');
+
+        if (!validaPeso(dadosPaciente.peso)) {
+            pesoEhInvalido = true;
+            var mensagem = "Peso inválido";
+            console.log(mensagem);
+            infoImc.textContent = mensagem;
+            destacaErro(paciente);
+        }
+
+        if(!validaAltura(dadosPaciente.altura)) {
+            alturaEhInvalida = true;
+            var mensagem = "Altura inválida";
+            console.log(mensagem);
+            infoImc.textContent = mensagem;
+            destacaErro(paciente);
+        }
+
+        if(!pesoEhInvalido && !alturaEhInvalida) {
+            dadosPaciente.imc = calculaImc(dadosPaciente.peso, dadosPaciente.altura).toFixed(2);
+            paciente.querySelector('.info-imc').textContent = dadosPaciente.imc;
+        }
+    }
 
     function obtemDadosDoPaciente(paciente) {
         return {
@@ -43,6 +55,8 @@
         if(altura < 3.00) return true;
     }
 
-    console.log(dadosPaciente);
+    function destacaErro(item) {
+        item.classList.add('paciente-invalido')
+    }
 
 })();
