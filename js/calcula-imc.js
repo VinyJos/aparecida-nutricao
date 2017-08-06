@@ -5,29 +5,29 @@ var pacientes = document.querySelectorAll('.paciente');
 
 for(var i = 0; i < pacientes.length; i++) {
     var paciente = pacientes[i];
-    var pesoEhInvalido = false;
-    var alturaEhInvalida = false;
+    var mensagem = '';
 
     var dadosPaciente = obtemDadosDoPaciente(paciente);
     var infoImc = paciente.querySelector('.info-imc');
 
-    if (!validaPeso(dadosPaciente.peso)) {
-        pesoEhInvalido = true;
-        var mensagem = "Peso inválido";
+    var pesoEhValido = validaPeso(dadosPaciente.peso);
+    var alturaEhValida = validaAltura(dadosPaciente.altura);
+
+    if (!pesoEhValido) {
+        mensagem = "Peso inválido";
         console.log(mensagem);
         infoImc.textContent = mensagem;
         destacaErro(paciente);
     }
 
-    if(!validaAltura(dadosPaciente.altura)) {
-        alturaEhInvalida = true;
-        var mensagem = "Altura inválida";
+    if(!alturaEhValida) {
+        mensagem = "Altura inválida";
         console.log(mensagem);
         infoImc.textContent = mensagem;
         destacaErro(paciente);
     }
 
-    if(!pesoEhInvalido && !alturaEhInvalida) {
+    if(pesoEhValido && alturaEhValida) {
         dadosPaciente.imc = calculaImc(dadosPaciente.peso, dadosPaciente.altura);
         paciente.querySelector('.info-imc').textContent = dadosPaciente.imc;
     }
