@@ -13,6 +13,7 @@ botaoAdicionar.addEventListener('click', function(event) {
     }
 
     var tabela = document.querySelector('#tabela-pacientes');
+    adicionaFuncaoRemove(pacienteTr);
     tabela.appendChild(pacienteTr);
     form.reset();
     document.querySelector('#mensagens-erro').innerHTML = '';
@@ -63,4 +64,10 @@ function exibeMensagensDeErros(erros) {
         li.textContent = erros[i];
         ul.appendChild(li);
     }
+}
+
+function adicionaFuncaoRemove(paciente) {
+    paciente.addEventListener('dblclick', function() {
+        paciente.remove();
+    });
 }
