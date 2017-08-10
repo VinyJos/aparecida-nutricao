@@ -13,7 +13,7 @@ botaoAdicionar.addEventListener('click', function(event) {
     }
 
     var tabela = document.querySelector('#tabela-pacientes');
-    adicionaFuncaoRemove(pacienteTr);
+    adicionaFuncaoRemove(tabela);
     tabela.appendChild(pacienteTr);
     form.reset();
     document.querySelector('#mensagens-erro').innerHTML = '';
@@ -66,8 +66,18 @@ function exibeMensagensDeErros(erros) {
     }
 }
 
-function adicionaFuncaoRemove(paciente) {
-    paciente.addEventListener('dblclick', function() {
-        paciente.remove();
+function adicionaFuncaoRemove(tabela) {
+    tabela.addEventListener('dblclick', function(event) {
+        // Eventos quando disparados vão subindo aos pais até chegar no body
+        // Criado método que adiciona o evento de remoção por duplo clique no
+        // pai(table) e setado o alvo filho que será removido
+        var alvoDoEvento = event.target; // td
+        var paiDoAlvoDoEvento = alvoDoEvento.parentNode; //tr
+        paiDoAlvoDoEvento.classList.add('fadeOut'); // adicionando efeito fadeOut na tr
+        setTimeout(function() {
+            paiDoAlvoDoEvento.remove();
+        }, 500);
+
+
     });
 }
