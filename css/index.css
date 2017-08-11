@@ -164,3 +164,7 @@ button[disabled=disabled], button:disabled {
 .busca #busca-paciente {
 	padding: 5px;
 }
+
+.invisivel {
+	display: none;
+}
