@@ -168,3 +168,13 @@ button[disabled=disabled], button:disabled {
 .invisivel {
 	display: none;
 }
+
+#mensagens-erro-ajax {
+	color: red;
+	margin: 10px 0;
+}
+
+.item-deletado {
+	background-color: red;
+	color: white;
+}

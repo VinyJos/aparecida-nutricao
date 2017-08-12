@@ -78,6 +78,7 @@ function adicionaFuncaoRemove(tabela) {
         var alvoDoEvento = event.target; // td
         var paiDoAlvoDoEvento = alvoDoEvento.parentNode; //tr
         paiDoAlvoDoEvento.classList.add('fadeOut'); // adicionando efeito fadeOut na tr
+        paiDoAlvoDoEvento.classList.add('item-deletado');
         setTimeout(function() {
             paiDoAlvoDoEvento.remove();
         }, 500);
