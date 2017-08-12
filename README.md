@@ -3,7 +3,7 @@ Aplicação web responsável por cadastrar pacientes e seus respectivos atributo
 Criado com HTML, CSS e JavaScript, sem uso de bibliotecas ou frameworks, esse projeto foi criado com o propósito da prática
 da linguagem JavaScript em sua versão anterior para eu poder aplicar no projeto da empresa onde trabalho pois a mesma se utiliza apenas dessas tecnologias citadas.
 
-##Sobre
+## Sobre  
+[LinkedIn](br.linkedin.com/in/pcfmello)
 __pcfmello@gmail.com__  
-__paulo@javascript.floripa.br__  
-__br.linkedin.com/in/pcfmello__  
+__paulo@javascript.floripa.br__
