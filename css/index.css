@@ -133,48 +133,11 @@ button[disabled=disabled], button:disabled {
 	border: 1px solid red;
 }
 
-.paciente-invalido {
-	color: white;
-	background-color: lightcoral;
-}
-
 #mensagens-erro {
 	color: red;
 	margin: 10px 0;
 }
 
-#mensagens-erro li {
-	margin-bottom: 5px;
-}
-
-.fadeOut {
-	opacity: 0;
-	transition: 0.5s;
-}
-
-.busca {
-	float: right;
-	padding: 15px 0;
-}
-
-.busca .rotulo {
-	display: inline;
-}
-
-.busca #busca-paciente {
-	padding: 5px;
-}
-
-.invisivel {
-	display: none;
-}
-
-#mensagens-erro-ajax {
-	color: red;
-	margin: 10px 0;
-}
-
-.item-deletado {
-	background-color: red;
-	color: white;
+.paciente-invalido {
+	background-color: lightcoral;
 }
