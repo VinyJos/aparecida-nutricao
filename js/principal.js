@@ -3,6 +3,7 @@
 // Buscar todos paciente
 var pacientes = document.querySelectorAll(".paciente");
 
+// Fazer a iteração para calcular para todos os pacientes
 for (let i = 0; i < pacientes.length; i++) {
    
     var paciente = pacientes[i]
